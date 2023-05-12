@@ -1,5 +1,10 @@
 #include <QCoreApplication>
 
+void preorder(const QDomNode &node, QVector<QString> &nodeInformation);
+void collectData(const QDomElement &domElement, QVector<QString> &nodeInformation);
+void formSentence(QVector<QString> vectorStr, QString &expressionInformation);
+QString getGivenWordForm(QString setGivenWords, QString Case);
+
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
