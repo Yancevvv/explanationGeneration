@@ -13,6 +13,7 @@ SOURCES += \
         tests/test_formSentence.cpp \
         tests/test_getGivenWordForm.cpp \
         tests/test_preorder.cpp \
+        tests/testapi.cpp \
         tests/tests.cpp
 
 # Default rules for deployment.
@@ -26,4 +27,5 @@ HEADERS += \
     tests/test_formSentence.h \
     tests/test_getGivenWordForm.h \
     tests/test_preorder.h \
+    tests/testapi.h \
     tests/tests.h
