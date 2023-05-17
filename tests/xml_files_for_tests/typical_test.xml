@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<expression>
+	<operation operType="+">
+		<operand dataType="целое" name="число">a</operand>
+		<operand dataType="вещественное" name="определитель">d</operand>
+	</operation>
+</expression>

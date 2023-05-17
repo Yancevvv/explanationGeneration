@@ -1,0 +1,6 @@
+<expression>
+	<operation operType="+">
+		<operand dataType="целое" >a</operand>
+		<operand dataType="вещественное" >d</operand>
+	</operation>
+</expression>

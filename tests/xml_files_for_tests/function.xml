@@ -1,0 +1,6 @@
+<expression>
+   <operation operType="+">
+		<operand dataType="вещественное" name="среднее значение" argument="x,y">averageValue</operand>
+		<operand dataType="вещественное" name="определитель">d</operand>
+   </operation>
+</expression>

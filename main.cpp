@@ -1,5 +1,5 @@
 #include <QCoreApplication>
-#include <QtXml/qdom.h>
+#include <QtXml>
 
 void preorder(const QDomNode &node, QVector<QString> &nodeInformation);
 void collectData(const QDomElement &domElement, QVector<QString> &nodeInformation);

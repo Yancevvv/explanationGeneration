@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<expression>
+   <operation operType="*">
+        <operation operType="+">
+            <operand dataType="целое" name="число строк">a</operand>
+            <operand dataType="целое" name="число столбцов">b</operand>
+        </operation>
+        <operation operType="-">
+            <operand dataType="вещественное" name="среднее значение" argument="x,y">averageValue</operand>
+            <operation operType="++">
+                <operand dataType="вещественное" name="определитель">d</operand>
+            </operation>
+        </operation>
+   </operation>
+</expression>

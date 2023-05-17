@@ -1,0 +1,6 @@
+<expression>
+	<operation operType="/">
+		<operand dataType="целое" name="число">a</operand>
+		<operand dataType="вещественное" name="определитель">d</operand>
+	</operation>
+</expression>

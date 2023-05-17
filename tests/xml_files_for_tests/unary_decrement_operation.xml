@@ -1,0 +1,5 @@
+<expression>
+	<operation operType="--">
+		<operand dataType="целое" name="число">a</operand>
+	</operation>
+</expression>
