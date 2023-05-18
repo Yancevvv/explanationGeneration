@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<expression>
+   <operand dataType="вещественное" name="среднее значение" argu-ment="x,y">averageValue</operand>
+</expression>
