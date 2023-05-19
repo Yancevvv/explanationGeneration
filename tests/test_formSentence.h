@@ -8,7 +8,13 @@ class Test_formSentence: public QObject
 {
     Q_OBJECT
 private slots:
-
+    void typical_test();
+    void operandsAreCombinedWithOn();
+    void operandIsDescribedBySeveralWords();
+    void setOfWordsContainsLatinCharacters();
+    void oneOperand();
+    void moreThanTwoOperands();
+    void moreThanTwoOperations();
 };
 
 #endif // TEST_FORMSENTENCE_H

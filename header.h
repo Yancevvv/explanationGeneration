@@ -21,7 +21,7 @@ void collectData(const QDomElement &domElement, QVector<QString> &nodeInformatio
 * \param[in] vectorStr - вектор строк, содержащий информацию об узлах
 * \param[out] expressionInformation - сформированная строка с объяснением
 */
-void formSentence(QVector<QString> vectorStr, QString &expressionInformation);
+void formSentence(QVector<QString> nodeInformation, QString &expressionInformation);
 
 /*! Возвращает слово в заданном падеже
 * \param[in] setGivenWords - набор заданных слов
