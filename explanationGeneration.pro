@@ -1,5 +1,6 @@
 QT -= gui
 QT += xml
+QT += testlib
 
 CONFIG += c++17 console
 CONFIG -= app_bundle

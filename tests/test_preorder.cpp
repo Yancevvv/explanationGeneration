@@ -2,10 +2,11 @@
 #include "header.h"
 #include "testapi.h"
 #include <QtXml>
+#include <QDebug>
 
 void Test_preorder::typical_test() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/preposition_on_division_operation.xml");
+    QFile file("xml_files_for_tests_preorder/typical_test.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
