@@ -32,7 +32,38 @@ void preorder(const QDomNode &node, QVector<QString> &nodeInformation) {
 }
 
 void collectData(const QDomElement &domElement, QVector<QString> &nodeInformation) {
-
+    QMap<QString, QString> mapOperation;
+    mapOperation["+"] = "сумма";
+    mapOperation["-"] = "разность";
+    mapOperation["*"] = "произведение";
+    mapOperation["/"] = "деление";
+    mapOperation["%"] = "остаток от целочисленного деления";
+    mapOperation["++"] = "инкремент";
+    mapOperation["--"] = "декремент";
+    mapOperation["!"] = "отрицание";
+    mapOperation["&&"] = "логическое умножение";
+    mapOperation["||"] = "логическое сложение";
+    // Если элемент узла определен
+    if (!domElement.isNull()) {
+        if(domElement.tagName() == "operation")
+            // Добавить в вектор значение атрибута типа операции, если тег определен, как операция
+            nodeInformation.append(mapOperation[domElement.attribute("operType")]);
+        // Иначе если тег определен, как операнд
+        else if (domElement.tagName() == "operand") {
+            // Сформировать строку, содержащую тип данных, название и аргументы тега операнда, если они имеются
+            QString operand;
+            if (domElement.hasAttribute("dataType"))
+                operand.append(domElement.attribute("dataType"));
+            if (domElement.hasAttribute("name"))
+                operand.append(" " + domElement.attribute("name"));
+            if (domElement.hasAttribute("argument"))
+                operand.append(" " + domElement.attribute("argument"));
+            // Добавить в строку содержимое тега операнда
+            operand.append(" " + domElement.text());
+            // Добавить сформированную строку в вектор
+            nodeInformation.append(operand);
+        }
+    }
 }
 
 void formSentence(QVector<QString> vectorStr, QString &expressionInformation) {
