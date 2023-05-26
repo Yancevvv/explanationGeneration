@@ -66,8 +66,23 @@ void collectData(const QDomElement &domElement, QVector<QString> &nodeInformatio
     }
 }
 
-void formSentence(QVector<QString> vectorStr, QString &expressionInformation) {
-
+void formSentence(QVector<QString> nodeInformation, QString &expressionInformation) {
+    // Добавить в строку первое слово из вектора
+    expressionInformation.append(nodeInformation[0] + " ");
+    // Для каждого элемента вектора, начиная со второго
+    for (int i = 1; i < vectorStr.size(); i++) {
+        if (vectorStr[i-1] != "на") {
+            // Добавить в строку элементы вектора в родительном падеже, если встречен союз «и»...
+            QString genitive = getGivenWordForm(vectorStr[i], "gent");
+            expressionInformation.append(genitive + " ");
+        }
+        else if (vectorStr[i-1] == "на") {
+            // Иначе если встречен предлог «на», добавить в строку элемент вектора
+            // в Р.П. слева от предлога и в В.П. справа от предлога...
+            QString accs = getGivenWordForm(vectorStr[i], "accs");
+            expressionInformation.append(accs + " ");
+        }
+    }
 }
 
 QString getGivenWordForm(QString setGivenWords, QString Case) {

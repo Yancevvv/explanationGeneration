@@ -2,7 +2,6 @@
 #include "header.h"
 #include "testapi.h"
 #include <QtXml>
-#include <QDebug>
 
 void Test_preorder::typical_test() {
     QDomDocument doc;
@@ -21,7 +20,7 @@ void Test_preorder::typical_test() {
 
 void Test_preorder::unary_decrement_operation() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/unary_decrement_operation.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/unary_decrement_operation.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -36,7 +35,7 @@ void Test_preorder::unary_decrement_operation() {
 
 void Test_preorder::unary_increment_operation() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/unary_increment_operation.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/unary_increment_operation.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -51,7 +50,7 @@ void Test_preorder::unary_increment_operation() {
 
 void Test_preorder::unary_operation_negation() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/unary_operation_negation.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/unary_operation_negation.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -66,7 +65,7 @@ void Test_preorder::unary_operation_negation() {
 
 void Test_preorder::right_subtree_is_larger_relative_to_the_left_one() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/right_subtree_is_larger_relative_to_the_left_one.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/right_subtree_is_larger_relative_to_the_left_one.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -81,7 +80,7 @@ void Test_preorder::right_subtree_is_larger_relative_to_the_left_one() {
 
 void Test_preorder::preposition_on_division_operation() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/preposition_on_division_operation.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/preposition_on_division_operation.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -96,7 +95,7 @@ void Test_preorder::preposition_on_division_operation() {
 
 void Test_preorder::operation_mod() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/operation_mod.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/operation_mod.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -111,7 +110,7 @@ void Test_preorder::operation_mod() {
 
 void Test_preorder::operation_logical_multiplication() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/operation_logical_multiplication.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/operation_logical_multiplication.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -126,7 +125,7 @@ void Test_preorder::operation_logical_multiplication() {
 
 void Test_preorder::operation_logical_addition() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/operation_logical_addition.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/operation_logical_addition.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -141,7 +140,7 @@ void Test_preorder::operation_logical_addition() {
 
 void Test_preorder::operation_difference() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/operation_difference.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/operation_difference.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -156,7 +155,7 @@ void Test_preorder::operation_difference() {
 
 void Test_preorder::operand_name_attribute_is_missing() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/operand_name_attribute_is_missing.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/operand_name_attribute_is_missing.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -171,7 +170,7 @@ void Test_preorder::operand_name_attribute_is_missing() {
 
 void Test_preorder::multiplication_operation() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/multiplication_operation.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/multiplication_operation.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -186,7 +185,7 @@ void Test_preorder::multiplication_operation() {
 
 void Test_preorder::missing_data_type_attribute() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/missing_data_type_attribute.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/missing_data_type_attribute.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -201,7 +200,7 @@ void Test_preorder::missing_data_type_attribute() {
 
 void Test_preorder::left_subtree_is_larger_relative_to_the_right_one() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/left_subtree_is_larger_relative_to_the_right_one.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/left_subtree_is_larger_relative_to_the_right_one.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -216,7 +215,7 @@ void Test_preorder::left_subtree_is_larger_relative_to_the_right_one() {
 
 void Test_preorder::left_and_right_subtrees_are_balanced() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/left_and_right_subtrees_are_balanced.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/left_and_right_subtrees_are_balanced.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
@@ -231,7 +230,7 @@ void Test_preorder::left_and_right_subtrees_are_balanced() {
 
 void Test_preorder::function() {
     QDomDocument doc;
-    QFile file("./tests/xml files for tests/function.xml");
+    QFile file("./tests/xml_files_for_tests_preorder/function.xml");
     QVector<QString> realResult;
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         if(doc.setContent(&file)) {
