@@ -44,7 +44,7 @@ void Test_formSentence::oneOperand() {
 void Test_formSentence::moreThanTwoOperands() {
     QVector<QString> information = {"произведение", "сумма", "целое число a", "и", "целое число столбцов b", "и", "вещественное определитель d"};
     QString realResult;
-    QString expectedResult = "произведение суммы числа целого числа a и целого числа столбцов b и вещественного определителя d";
+    QString expectedResult = "произведение суммы целого числа a и целого числа столбцов b и вещественного определителя d";
     formSentence(information, realResult);
     QCOMPARE(realResult, expectedResult);
 }

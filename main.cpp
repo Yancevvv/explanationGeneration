@@ -70,21 +70,34 @@ void formSentence(QVector<QString> nodeInformation, QString &expressionInformati
     // Добавить в строку первое слово из вектора
     expressionInformation.append(nodeInformation[0] + " ");
     // Для каждого элемента вектора, начиная со второго
-    for (int i = 1; i < vectorStr.size(); i++) {
-        if (vectorStr[i-1] != "на") {
+    for (int i = 1; i < nodeInformation.size(); i++) {
+        if (nodeInformation[i-1] != "на") {
             // Добавить в строку элементы вектора в родительном падеже, если встречен союз «и»...
-            QString genitive = getGivenWordForm(vectorStr[i], "gent");
+            QString genitive = getGivenWordForm(nodeInformation[i], "gent");
             expressionInformation.append(genitive + " ");
         }
-        else if (vectorStr[i-1] == "на") {
+        else if (nodeInformation[i-1] == "на") {
             // Иначе если встречен предлог «на», добавить в строку элемент вектора
             // в Р.П. слева от предлога и в В.П. справа от предлога...
-            QString accs = getGivenWordForm(vectorStr[i], "accs");
+            QString accs = getGivenWordForm(nodeInformation[i], "accs");
             expressionInformation.append(accs + " ");
         }
     }
+    expressionInformation.chop(1);
 }
 
 QString getGivenWordForm(QString setGivenWords, QString Case) {
-    return "";
+    // Разбить строку на слова, пропустив разделители
+    QStringList lstStr = setGivenWords.split(" ");
+    lstStr.insert(0, Case);
+    // Запустить процесс выполнения скрипта, разработанного с использованием языка программирования python и библиотеки pymorphy2
+    QProcess proc;
+    proc.start("main.exe", lstStr);
+    proc.waitForFinished();
+    // Прочитать полученную строку из консоли
+    QByteArray output = proc.readAllStandardOutput();
+    // Завершить процесс
+    proc.close();
+    // Возвратить строку, содержащую набор слов в заданном падеже
+    return QString::fromLocal8Bit(output);
 }
