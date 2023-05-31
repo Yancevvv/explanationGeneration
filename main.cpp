@@ -2,6 +2,8 @@
 #include <QtXml>
 #include "tests/tests.h"
 #include <QDebug>
+#include <exception.h>
+#include <QTextStream>
 
 void preorder(const QDomNode &node, QVector<QString> &nodeInformation);
 void collectData(const QDomElement &domElement, QVector<QString> &nodeInformation);
@@ -10,9 +12,52 @@ QString getGivenWordForm(QString setGivenWords, QString Case);
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-    runTests();
-    return 0;
+    QString inputArgsError("Input or output files are not specified.");
+    QString inputFileError("The input data file is specified incorrectly.");
+    QString outputFileError("The output data file is specified incorrectly.");
+    QTextStream error(stdout);
+    try {
+        if (argc < 3) {
+            error << inputArgsError;
+            return 1;
+        }
+        else {
+            QString fileName(argv[1]);
+            QFile inputFile(fileName);
+            if (inputFile.exists()) {
+                QDomDocument doc;
+                QVector<QString> nodeInformation;
+                QString Result;
+                if(inputFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                    if(doc.setContent(&inputFile)) {
+                        QDomElement element = doc.documentElement();
+                        preorder(element, nodeInformation);
+                    }
+                    inputFile.close();
+                }
+                formSentence(nodeInformation, Result);
+                QFile outFile(argv[2]);
+                if (outFile.open(QIODevice::WriteOnly)) {
+                    QTextStream out(&outFile);
+                    out << Result;
+                }
+                else {
+                    error << outputFileError;
+                    return 1;
+                }
+                //runTests();
+                return 0;
+            }
+            else {
+                error << inputFileError;
+                return 1;
+            }
+        }
+    }
+    catch (Exception exception) {
+        error << exception.getMessage();
+        return 1;
+    }
 }
 
 void preorder(const QDomNode &node, QVector<QString> &nodeInformation) {
