@@ -8,3 +8,9 @@ Exception::Exception(QString message)
 QString Exception::getMessage() {
     return this->message;
 }
+
+InvalidOperandCountException::InvalidOperandCountException(QString message) : Exception(message) {}
+
+InvalidOperationException::InvalidOperationException(QString message) : Exception(message) {}
+
+InvalidTagException::InvalidTagException(QString message) : Exception(message) {}

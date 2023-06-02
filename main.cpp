@@ -62,6 +62,7 @@ int main(int argc, char *argv[])
 
 void preorder(const QDomNode &node, QVector<QString> &nodeInformation) {
     QDomElement domElement = node.toElement();
+    QVector<QString> unaryOperations = {"!", "++", "--"};
     if(domElement.isNull()) return;
     // Произвести сбор данных в вектор с узла...
     collectData(domElement, nodeInformation);
@@ -72,6 +73,10 @@ void preorder(const QDomNode &node, QVector<QString> &nodeInformation) {
         nodeInformation.append("на");
     else if (node.parentNode().toElement().tagName() == "operation" and !(node.nextSibling().isNull()))
         nodeInformation.append("и");
+    // Обработать ошибку неверного количества операндов
+    if (node.toElement().tagName() == "operation" and node.childNodes().count() == 1 and !(unaryOperations.contains(node.toElement().attribute("operType")))){
+        throw InvalidOperandCountException("The expression is not fully written, check the number of operands of operations.");
+    }
     // Посетить правый дочерний узел...
     preorder(node.nextSibling(), nodeInformation);
 }
@@ -108,6 +113,14 @@ void collectData(const QDomElement &domElement, QVector<QString> &nodeInformatio
             // Добавить сформированную строку в вектор
             nodeInformation.append(operand);
         }
+        // Обработать ошибку недопустимой операции
+        if (domElement.tagName() == "operation" and mapOperation[domElement.attribute("operType")] == "")
+            throw InvalidOperationException(
+                    QString("Invalid operation \"%1\" was expected to be one of the valid operations.").arg(domElement.attribute("operType")));
+        // Обработать ошибку недопустимого тега
+        if (domElement.tagName() != "operation" and domElement.tagName() != "operand" and domElement.tagName() != "expression")
+            throw InvalidTagException(
+                    QString("Invalid tag name \"%1\"").arg(domElement.tagName()));
     }
 }
 

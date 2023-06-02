@@ -12,4 +12,19 @@ protected:
     QString message;
 };
 
+class InvalidOperandCountException : public Exception {
+public:
+    InvalidOperandCountException(QString message);
+};
+
+class InvalidOperationException : public Exception {
+public:
+    InvalidOperationException(QString message);
+};
+
+class InvalidTagException : public Exception {
+public:
+    InvalidTagException(QString message);
+};
+
 #endif // EXCEPTION_H
