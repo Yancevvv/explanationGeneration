@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
     QString inputArgsError("Input or output files are not specified.");
     QString inputFileError("The input data file is specified incorrectly.");
     QString outputFileError("The output data file is specified incorrectly.");
+    QString syntaxXmlError("Error in the syntax of the xml file.");
     QTextStream error(stdout);
     try {
         if (argc < 3) {
@@ -40,7 +41,12 @@ int main(int argc, char *argv[])
                     }
                     inputFile.close();
                 }
-                formSentence(nodeInformation, Result);
+                if (nodeInformation.size() != 0)
+                    formSentence(nodeInformation, Result);
+                else {
+                    error << syntaxXmlError;
+                    return 1;
+                }
                 QFile outFile(argv[2]);
                 if (outFile.open(QIODevice::WriteOnly)) {
                     QTextStream out(&outFile);
@@ -50,7 +56,6 @@ int main(int argc, char *argv[])
                     error << outputFileError;
                     return 1;
                 }
-                //runTests();
                 return 0;
             }
             else {
@@ -74,7 +79,7 @@ void preorder(const QDomNode &node, QVector<QString> &nodeInformation) {
     // Посетить левый дочерний узел...
     preorder(node.firstChild(), nodeInformation);
     // Добавить в вектор союз или предлог, соответствующий операции (родительскому узлу)
-    if (node.parentNode().toElement().tagName() == "operation" and node.parentNode().toElement().attribute("operType") == "/" and !(node.nextSibling().isNull()))
+    if (node.parentNode().toElement().tagName() == "operation" and (node.parentNode().toElement().attribute("operType") == "/" or node.parentNode().toElement().attribute("operType") == "%") and !(node.nextSibling().isNull()))
         nodeInformation.append("на");
     else if (node.parentNode().toElement().tagName() == "operation" and !(node.nextSibling().isNull()))
         nodeInformation.append("и");
