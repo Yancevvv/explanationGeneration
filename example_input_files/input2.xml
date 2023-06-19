@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<expression>
+   <operation operType="*">
+		<operand dataType="булевое" name="флаг">flag</operand>
+        <operation operType="-">
+            <operand dataType="вещественное" name="среднее значение" argument="x,y">averageValue</operand>
+            <operation operType="++">
+                <operand dataType="целое" name="минимум">min</operand>
+            </operation>
+        </operation>
+   </operation>
+</expression>

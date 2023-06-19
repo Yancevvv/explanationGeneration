@@ -1,0 +1,6 @@
+<expression>
+	<operation operType="*">
+		<operand1 dataType="целое" name="ранг матрицы">rang</operand1>
+		<operand dataType="вещественное" name="определитель">det</operand>
+	</operation>
+</expression>

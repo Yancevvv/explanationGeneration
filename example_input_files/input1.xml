@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<expression>
+	<operation operType="*">
+		<operand dataType="целое" name="ранг матрицы">rang</operand>
+		<operand dataType="вещественное" name="определитель">det</operand>
+	</operation>
+</expression>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<expression>
+   <operation operType="%">
+        <operation operType="+">
+            <operand dataType="целочисленная" name="мощность">power</operand>
+            <operand dataType="целочисленная" name="производительность">performance</operand>
+        </operation>
+		<operation operType="!">
+			<operand dataType="булевое" name="флаг чётности">parityFlag</operand>
+		</operation>
+   </operation>
+</expression>
