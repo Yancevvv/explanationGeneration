@@ -1,5 +1,17 @@
-#include "test_getGivenWordForm.h"
-#include "header.h"
+#include <QtTest>
+#include "../header.h"
+
+class Test_getGivenWordForm: public QObject
+{
+    Q_OBJECT
+private slots:
+    void nominativeCase();
+    void genitive();
+    void dative();
+    void accusative();
+    void ablative();
+    void prepositional();
+};
 
 void Test_getGivenWordForm::nominativeCase() {
     QString setGivenWords = "число";
@@ -42,3 +54,7 @@ void Test_getGivenWordForm::prepositional() {
     QString realResult = getGivenWordForm(setGivenWords, "loct");
     QCOMPARE(realResult, expectedResult);
 }
+
+QTEST_APPLESS_MAIN(Test_getGivenWordForm)
+
+#include "tst_test_getgivenwordform.moc"

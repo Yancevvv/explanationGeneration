@@ -1,5 +1,18 @@
-#include "test_formSentence.h"
-#include "header.h"
+#include <QtTest>
+#include "../header.h"
+
+class Test_formSentence : public QObject
+{
+    Q_OBJECT
+private slots:
+    void typical_test();
+    void operandsAreCombinedWithOn();
+    void operandIsDescribedBySeveralWords();
+    void setOfWordsContainsLatinCharacters();
+    void oneOperand();
+    void moreThanTwoOperands();
+    void moreThanTwoOperations();
+};
 
 void Test_formSentence::typical_test() {
     QVector<QString> information = {"сумма", "число", "и", "определитель"};
@@ -56,3 +69,7 @@ void Test_formSentence::moreThanTwoOperations() {
     formSentence(information, realResult);
     QCOMPARE(realResult, expectedResult);
 }
+
+QTEST_APPLESS_MAIN(Test_formSentence)
+
+#include "tst_test_formsentence.moc"

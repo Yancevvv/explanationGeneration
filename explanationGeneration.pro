@@ -11,13 +11,8 @@ CONFIG -= app_bundle
 
 SOURCES += \
         exception.cpp \
-        main.cpp \
-        tests/test_collectData.cpp \
-        tests/test_formSentence.cpp \
-        tests/test_getGivenWordForm.cpp \
-        tests/test_preorder.cpp \
-        tests/testapi.cpp \
-        tests/tests.cpp
+        functions.cpp \
+        main.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -25,12 +20,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    Exception.h \
     exception.h \
-    header.h \
-    tests/test_collectData.h \
-    tests/test_formSentence.h \
-    tests/test_getGivenWordForm.h \
-    tests/test_preorder.h \
-    tests/testapi.h \
-    tests/tests.h
+    header.h
