@@ -61,23 +61,8 @@
 </table>
 <h2><b> Пример работы программы </b></h2>
 <center>Дерево разбора выражения</center>
-<center><img src="example.png"></center>
+<img src="doxygen/example.png">
 <center>Xml формат</center>
-``` xml
-<expression>
-   <operation operType="/">
-        <operation operType="+">
-            <operand dataType="целое" name="число строк">x</operand>
-            <operand dataType="целое" name="число столбцов">y</operand>
-        </operation>
-        <operation operType="-">
-            <operand dataType="вещественное" name="среднее значение" argument="(x,y) от ">f</operand>
-            <operation operType="++">
-                <operand dataType="вещественное" name="определитель">z</operand>
-            </operation>
-        </operation>
-   </operation>
-</expression>
-```
+<img src="doxygen/exmpl_xml.png">
 <center>Объяснение выражения</center>
 деление суммы целого числа строк x и целого числа столбцов y на разность вещественного среднего значения (x,y) от f и инкремента вещественного определителя z
