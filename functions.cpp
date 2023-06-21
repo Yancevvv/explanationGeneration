@@ -1,3 +1,8 @@
+/*!
+ * \file
+ * \brief Данный файл содержит реализацию основных функций программы
+ */
+
 #include "header.h"
 #include "exception.h"
 

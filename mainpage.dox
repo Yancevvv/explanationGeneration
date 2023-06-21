@@ -64,7 +64,22 @@
  * <center>Дерево разбора выражения</center>
  * <center><img src="example.png"></center>
  * <center>Xml формат</center>
- * <center><img src="example_xml.png"></center>
+ * ```
+ * <expression>
+ * <operation operType="/">
+ *      <operation operType="+">
+ *          <operand dataType="целое" name="число строк">x</operand>
+ *          <operand dataType="целое" name="число столбцов">y</operand>
+ *      </operation>
+ *      <operation operType="-">
+ *          <operand dataType="вещественное" name="среднее значение" argument="(x,y) от ">f</operand>
+ *          <operation operType="++">
+ *              <operand dataType="вещественное" name="определитель">z</operand>
+ *          </operation>
+ *      </operation>
+ * </operation>
+ * </expression>
+ * ```
  * <center>Объяснение выражения</center>
- * <center>деление суммы целого числа строк x и целого числа столбцов y на разность вещественного среднего значения (x,y) от f и инкремента вещественного определителя z</center>
+ * деление суммы целого числа строк x и целого числа столбцов y на разность вещественного среднего значения (x,y) от f и инкремента вещественного определителя z
 */

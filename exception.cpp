@@ -1,3 +1,8 @@
+/*!
+ * \file
+ * \brief Файл с реализацией исключений, необходимых для программы
+ */
+
 #include "Exception.h"
 
 Exception::Exception(QString message)

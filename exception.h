@@ -1,3 +1,8 @@
+/*!
+ * \file
+ * \brief Основные исключения, необходимые для работы программы
+ */
+
 #ifndef EXCEPTION_H
 #define EXCEPTION_H
 
